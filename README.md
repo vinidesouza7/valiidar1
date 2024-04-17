@@ -1,4 +1,22 @@
 
+![Logo](https://media.licdn.com/dms/image/C4E1BAQE4DfTAyYvpOw/company-background_10000/0/1652882563912/drugovichlabs_cover?e=2147483647&v=beta&t=dnkG-Tyr0yIeSNqFgs-6b0_0BY_MSe1OZa-3xpnGtaQ)
+
+
+# Drugovich API
+
+Teste Back-end PHP - Desenvolver uma API RESTful utilizando Laravel.
+
+## Documentação da API (Scribe)
+
+Documentação /docs
+
+Gerente nível 1
+gerente1@example.com
+drugovich123@
+
+Gerente nível 2
+gerente2@example.com
+drugovich123@
 ## Instalação
 
 Clone o projeto
@@ -67,3 +85,12 @@ Recria e popula o banco de dados
 ```bash
 php artisan migrate:fresh --seed
 ```
+## Suporte
+
+Para suporte, mande um email para lucas@lucasvallim.com.br
+
+
+## Autor
+
+- [@lucas-vallim](https://github.com/lucas-vallim)
+
