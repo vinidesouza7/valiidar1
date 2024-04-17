@@ -1,0 +1,257 @@
+openapi: 3.0.3
+info:
+  title: Drugovich
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://drugovich.test'
+paths:
+  /api/login:
+    post:
+      summary: 'Login and get token.'
+      operationId: loginAndGetToken
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The e-mail.'
+                  example: gerente2@example.com
+                password:
+                  type: string
+                  description: 'The password.'
+                  example: drugovich123@
+              required:
+                - email
+                - password
+      security: []
+  /api/groups:
+    get:
+      summary: 'Displays a list of all groups.'
+      operationId: displaysAListOfAllGroups
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    name: Inactive
+                    created_at: '2024-04-17T07:09:26.000000Z'
+                    updated_at: '2024-04-17T07:12:01.000000Z'
+                  -
+                    id: 2
+                    name: Revenda
+                    created_at: '2024-04-17T07:09:26.000000Z'
+                    updated_at: '2024-04-17T07:09:26.000000Z'
+                  -
+                    id: 3
+                    name: 'Cliente Final'
+                    created_at: '2024-04-17T07:09:26.000000Z'
+                    updated_at: '2024-04-17T07:09:26.000000Z'
+                  -
+                    id: 4
+                    name: Seguradora
+                    created_at: '2024-04-17T07:09:26.000000Z'
+                    updated_at: '2024-04-17T07:09:26.000000Z'
+                  -
+                    id: 6
+                    name: Taxi
+                    created_at: '2024-04-17T07:09:26.000000Z'
+                    updated_at: '2024-04-17T07:09:26.000000Z'
+                  -
+                    id: 7
+                    name: Locadora
+                    created_at: '2024-04-17T07:09:26.000000Z'
+                    updated_at: '2024-04-17T07:09:26.000000Z'
+                  -
+                    id: 8
+                    name: Autoescola
+                    created_at: '2024-04-17T07:09:26.000000Z'
+                    updated_at: '2024-04-17T07:09:26.000000Z'
+                  -
+                    id: 9
+                    name: Colecionador
+                    created_at: '2024-04-17T07:09:26.000000Z'
+                    updated_at: '2024-04-17T07:09:26.000000Z'
+                  -
+                    id: 10
+                    name: VIP
+                    created_at: '2024-04-17T07:10:07.000000Z'
+                    updated_at: '2024-04-17T07:10:07.000000Z'
+      tags:
+        - Endpoints
+    post:
+      summary: 'Created a new group.'
+      operationId: createdANewGroup
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the new group.'
+                  example: VIP
+              required:
+                - name
+  '/api/groups/{group}':
+    get:
+      summary: 'Display a specific group.'
+      operationId: displayASpecificGroup
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    put:
+      summary: 'Update a specific group.'
+      operationId: updateASpecificGroup
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The name of the new group.'
+                  example: Inactive
+              required:
+                - name
+    delete:
+      summary: 'Delete a specific group.'
+      operationId: deleteASpecificGroup
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: group
+        description: 'The ID of the group.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/groups/{group}/customers':
+    get:
+      summary: 'Display the customers in a specific group.'
+      operationId: displayTheCustomersInASpecificGroup
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: group
+        description: 'The ID of the group.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/groups/{group}/customers/{customer}':
+    post:
+      summary: 'Add a customer to a specific group.'
+      operationId: addACustomerToASpecificGroup
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    delete:
+      summary: 'Remove a customer from a specific group.'
+      operationId: removeACustomerFromASpecificGroup
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: group
+        description: 'The ID of the group.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: customer
+        description: 'The ID of the customer.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Endpoints
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: 'You can retrieve your token by using the <b>Login</b> endpoint.'
+security:
+  -
+    default: []

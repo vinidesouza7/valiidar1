@@ -1,0 +1,375 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/drugovich.test"
+        }
+    ],
+    "info": {
+        "name": "Drugovich",
+        "_postman_id": "4b96ced6-20cb-442b-ad60-353d5e69cbc6",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Login and get token.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"gerente2@example.com\",\"password\":\"drugovich123@\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Displays a list of all groups.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/groups",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/groups"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "59"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "[{\"id\":1,\"name\":\"Inactive\",\"created_at\":\"2024-04-17T07:09:26.000000Z\",\"updated_at\":\"2024-04-17T07:12:01.000000Z\"},{\"id\":2,\"name\":\"Revenda\",\"created_at\":\"2024-04-17T07:09:26.000000Z\",\"updated_at\":\"2024-04-17T07:09:26.000000Z\"},{\"id\":3,\"name\":\"Cliente Final\",\"created_at\":\"2024-04-17T07:09:26.000000Z\",\"updated_at\":\"2024-04-17T07:09:26.000000Z\"},{\"id\":4,\"name\":\"Seguradora\",\"created_at\":\"2024-04-17T07:09:26.000000Z\",\"updated_at\":\"2024-04-17T07:09:26.000000Z\"},{\"id\":6,\"name\":\"Taxi\",\"created_at\":\"2024-04-17T07:09:26.000000Z\",\"updated_at\":\"2024-04-17T07:09:26.000000Z\"},{\"id\":7,\"name\":\"Locadora\",\"created_at\":\"2024-04-17T07:09:26.000000Z\",\"updated_at\":\"2024-04-17T07:09:26.000000Z\"},{\"id\":8,\"name\":\"Autoescola\",\"created_at\":\"2024-04-17T07:09:26.000000Z\",\"updated_at\":\"2024-04-17T07:09:26.000000Z\"},{\"id\":9,\"name\":\"Colecionador\",\"created_at\":\"2024-04-17T07:09:26.000000Z\",\"updated_at\":\"2024-04-17T07:09:26.000000Z\"},{\"id\":10,\"name\":\"VIP\",\"created_at\":\"2024-04-17T07:10:07.000000Z\",\"updated_at\":\"2024-04-17T07:10:07.000000Z\"}]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display a specific group.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/groups\/:group",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/groups\/:group",
+                            "variable": [
+                                {
+                                    "id": "group",
+                                    "key": "group",
+                                    "value": "1",
+                                    "description": "The ID of the group."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display the customers in a specific group.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/groups\/:group\/customers",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/groups\/:group\/customers",
+                            "variable": [
+                                {
+                                    "id": "group",
+                                    "key": "group",
+                                    "value": "1",
+                                    "description": "The ID of the group."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Add a customer to a specific group.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/groups\/:group\/customers\/:customer",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/groups\/:group\/customers\/:customer",
+                            "variable": [
+                                {
+                                    "id": "group",
+                                    "key": "group",
+                                    "value": "1",
+                                    "description": "The ID of the group."
+                                },
+                                {
+                                    "id": "customer",
+                                    "key": "customer",
+                                    "value": "1",
+                                    "description": "The ID of the customer."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove a customer from a specific group.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/groups\/:group\/customers\/:customer",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/groups\/:group\/customers\/:customer",
+                            "variable": [
+                                {
+                                    "id": "group",
+                                    "key": "group",
+                                    "value": "1",
+                                    "description": "The ID of the group."
+                                },
+                                {
+                                    "id": "customer",
+                                    "key": "customer",
+                                    "value": "1",
+                                    "description": "The ID of the customer."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Created a new group.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/groups",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/groups"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"VIP\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update a specific group.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/groups\/:group",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/groups\/:group",
+                            "variable": [
+                                {
+                                    "id": "group",
+                                    "key": "group",
+                                    "value": "1",
+                                    "description": "The ID of the group."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"Inactive\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete a specific group.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/groups\/:group",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/groups\/:group",
+                            "variable": [
+                                {
+                                    "id": "group",
+                                    "key": "group",
+                                    "value": "1",
+                                    "description": "The ID of the group."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "Authorization",
+                "type": "string"
+            }
+        ]
+    }
+}
